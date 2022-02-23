@@ -1,9 +1,17 @@
+import FeedVideos from 'components/FeedVideos'
 
 const Home = () => {
   return (
-    <div>
-      <h1>Hola Mundo</h1>
-    </div>
+    <>
+      <main>
+        <FeedVideos />
+      </main>
+      <style jsx>{`
+        main {
+
+        }
+      `}</style>
+    </>
   )
 }
 
