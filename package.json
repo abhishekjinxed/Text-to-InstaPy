@@ -2,11 +2,16 @@
   "name": "tiktok-clone",
   "version": "0.1.0",
   "private": true,
+  "description": "TikTok clone",
+  "repository": "https://github.com/yomarsanchez/tiktok-clone.git",
+  "author": "yomarsan.98@gmail.com",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "standard:fix": "standard --fix"
   },
   "dependencies": {
     "next": "12.1.0",
@@ -16,8 +21,11 @@
   "devDependencies": {
     "@types/node": "17.0.20",
     "@types/react": "17.0.39",
+    "@typescript-eslint/eslint-plugin": "5.12.1",
     "eslint": "8.9.0",
     "eslint-config-next": "12.1.0",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "standard": "16.0.4",
     "typescript": "4.5.5"
   }
 }
