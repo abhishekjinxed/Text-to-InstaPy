@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { PlayerIcon } from './player-icon'
+import { PlayerIcon } from 'components/Player/PlayerIcon'
 
 export default function Player ({ src, poster }) {
   const [playing, setPlaying] = useState(false)
@@ -38,9 +38,7 @@ export default function Player ({ src, poster }) {
       <style jsx>{`
         .player {
           display: flex;
-          position: relative;
-          width: 100%;
-          height: 100vh;
+          position: relative;          
           background: var(--black);
           overflow: hidden;
         }

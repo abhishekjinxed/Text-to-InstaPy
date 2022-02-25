@@ -1,17 +1,10 @@
-import FeedVideos from 'components/FeedVideos'
+import PostList from 'components/PostList'
 
 const Home = () => {
   return (
-    <>
-      <main>
-        <FeedVideos />
-      </main>
-      <style jsx>{`
-        main {
-
-        }
-      `}</style>
-    </>
+    <main>
+      <PostList />
+    </main>
   )
 }
 
