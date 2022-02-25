@@ -9,7 +9,7 @@ export default function PostList () {
       ))}
       <style jsx>{`
         .post-list {
-          height: 100vh;
+          height: calc(var(--vh, 1vh) * 100);
           overflow-y: auto;
           overflow-x: hidden;
           scroll-snap-type: y mandatory;
