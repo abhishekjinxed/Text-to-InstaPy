@@ -12,6 +12,7 @@ export default function PostItem ({ item }) {
       <PostItemBottom {...item} />
       <style jsx>{`
         .post-item {
+          display: flex;
           width: 100%;
           height: 100vh;
           scroll-snap-align: center;

@@ -37,7 +37,7 @@ export default function Player ({ src, poster }) {
       </div>
       <style jsx>{`
         .player {
-          display: flex;
+          flex: auto;
           position: relative;          
           background: var(--black);
           overflow: hidden;
