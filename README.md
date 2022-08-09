@@ -59,8 +59,7 @@ Create a virtual environment and run
 pip3 install -r requirement.txt
 
 
-Then you can create a script in test_script.txt and run
-
+Then you can create a script in script.json and run
 
 py text_to_video.py
 
