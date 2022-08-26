@@ -1,12 +1,12 @@
 import PostItemAlbum from './PostItemAlbum'
 import PostItemMusic from './PostItemMusic'
 
-export default function PostItemBottom ({ author, text, album }) {
+export default function PostItemBottom ({ author, title, album }) {
   return (
     <div className='post-item-bottom'>
       <div className='post-item-info'>
         <a href={`/${author}`} >{author}</a>
-        <p>{text}</p>
+        <p>{title}</p>
       </div>
       <div className='post-item-content'>
         <PostItemMusic album={album} />

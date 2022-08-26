@@ -1,6 +1,6 @@
 import PostList from 'components/PostList'
 
-const Nsfw = (props) => {
+const Home = (props) => {
 
 
 const video = []; 
@@ -15,10 +15,10 @@ if(vid.type==="video/mp4")
             mp4: vid.mp4,
             source:im.link,
             nsfw:im.nsfw,
-            shares:'1.5k',
+            shares:19,
             author: "@midudev",
             text: "this is default text",
-            album:{title:"sonido original - Miguel", Cover:'/images/disc-music.gif'},
+            album:{title:"sonido original - Miguel", Cover:'/images/user.jpeg'},
             avatar:'/images/user.jpeg'
           
           });
@@ -29,15 +29,24 @@ if(vid.type==="video/mp4")
         });
 
   return (
-    <main>
-     
-      <PostList video={video} />
-    </main>
+   
+         <div className='nsfw'>NSFW
+
+
+<style jsx>{`
+        .nsfw {
+          background:black;
+          height :100vh
+        }
+      `}</style>
+         </div>
+      
+   
   )
 }
 export async function getServerSideProps(context) {
   // fetch the blog posts from the mock API
-  const res = await fetch('https://api.imgur.com/3/gallery/top',  
+  const res = await fetch('https://api.imgur.com/3/gallery/hot',  
   {
     method: 'GET',
     headers: new Headers({
@@ -50,4 +59,4 @@ export async function getServerSideProps(context) {
     props: { posts } // props will be passed to the page
   };
 }
-export default Nsfw
+export default Home

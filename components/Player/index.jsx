@@ -1,39 +1,91 @@
-import { useRef, useState } from 'react'
-import { PlayerIcon } from 'components/Player/PlayerIcon'
+import { useRef, useState,useEffect } from 'react'
+import { MuteIcon } from 'components/Player/MuteIcon'
+import {useCallback } from 'react'
+import { useRouter } from 'next/router'
 
-export default function Player ({ src, poster }) {
-  const [playing, setPlaying] = useState(false)
-  const video = useRef(null)
+export default function Player ({ src, poster,id,cnt,scrolltop,mute}) {
+   const video =useRef(null)
+   const muteref=useRef(null)
+   
+  
+   const router = useRouter()
 
-  const handlePlay = () => {
-    const { current: videoEl } = video
-    playing
-      ? videoEl?.pause()
-      : videoEl?.play()
+   
 
-    setPlaying(!playing)
-  }
+   
+  
+   function isNaturalNumber (str) {
+   return (str).toFixed() ;
+}
+
+  useEffect(()=>{
+const height =video.current.clientHeight
+
+const curentvideonumber= isNaturalNumber(scrolltop/height)
+
+if(curentvideonumber==cnt)
+{
+ // router.push('/','/reel/'+id,{ shallow: true }) 
+ 
+ 
+  video.current.play()
+
+  video.current.addEventListener("loadeddata", function() {
+  console.log(video.current.webkitAudioDecodedByteCount )
+  })
+  
+if(video.current.webkitAudioDecodedByteCount  > 0 )
+ {
+  muteref.current.style.display = 'none' ;
+  
+ 
+}
+else
+{
+muteref.current.style.display = 'block'
+muteref.current.style.webkitAnimation = 'fadein 2s';
+setTimeout(()=>{muteref.current.style.display = 'none'},1500) ;
+}
+
+
+  
+}
+else
+{
+ video.current.pause()
+}
+  },[scrolltop])
+
 
   return (
     <div className='player'>
       <video
-        src={src}
-        loop
+        id={id}
+        keyid={cnt}
+        src={src}  
+        muted  ={mute} 
         webkit-playsinline='true'
         playsInline
+        loop
         poster={poster}
-        ref={video}
+        ref={video}              
+        
+          // document.getElementsByClassName('post-list')[0].scrollTop
+          
+        
       >
         <track kind='captions' />
       </video>
       <div
         className='player-overlay'
-        role='button'
-        onClick={handlePlay}
-        onKeyPress={handlePlay}
-        tabIndex={0}
+        role='button'    
+        tabIndex={0}      
       >
-        {!playing && <PlayerIcon />}
+    {
+      <p className='nosound' ref={muteref}>Video has no sound </p>
+      
+    }
+    { mute&&<MuteIcon/>}
       </div>
       <style jsx>{`
         .player {
@@ -60,6 +112,11 @@ export default function Player ({ src, poster }) {
           place-content: center;
           visibility: visible;
         }
+        @-webkit-keyframes fadein {
+          from { opacity: 1; }
+          to   { opacity: 0; }
+      }
+        
       `}</style>
     </div>
   )

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function Avatar ({ src, alt }) {
+export default function Avatar ({ src="/lfeoafa.jpg", alt }) {
   return (
     <div className='avatar'>
       <Image src={src} alt={alt} layout='fill' />
